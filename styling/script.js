@@ -1,4 +1,4 @@
- const ball = document.querySelector("#watch");
+ const watch = document.querySelector("#watch");
 
 let position = 0;
 
@@ -21,7 +21,7 @@ function step() {
 
     }
     
-    ball.style.transform = `translateX(${position}px)`;
+    watch.style.transform = `translateX(${position}px)`;
     requestAnimationFrame(step);
 }
 
