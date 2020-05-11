@@ -8,7 +8,7 @@ h1,h2,h3 {
     padding: 0em 4vw;
 }
 
-#ball {
+#watch {
     width: 20vw;
     height: 20vw;
     background-image: url(watch.svg);
