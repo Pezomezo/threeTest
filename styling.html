@@ -6,7 +6,7 @@
     <title>Micro animation</title>
     
     <style>
-    body {
+body {
 margin: 0;
 padding: 0;
 background-color: lightblue;
@@ -20,7 +20,7 @@ h1,h2,h3 {
 
  
 
-#ball {
+#watch {
     width: 20vw;
     height: 20vw;
     background-image: url(watch.svg);
@@ -39,7 +39,7 @@ h1,h2,h3 {
     </div>
     
     <script>
-        const ball = document.querySelector("#ball");
+        const watch = document.querySelector("#watch");
 
  
 
@@ -75,7 +75,7 @@ function step() {
 
     }
     
-    ball.style.transform = `translateX(${position}px)`;
+    watch.style.transform = `translateX(${position}px)`;
     console.log("if running");
     requestAnimationFrame(step);
     console.log("requestAnimationFrame running");
