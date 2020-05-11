@@ -1,0 +1,16 @@
+body {
+margin: 0;
+padding: 0;
+background-color: lightblue;
+}
+
+h1,h2,h3 {
+    padding: 0em 4vw;
+}
+
+#watch {
+    width: 20vw;
+    height: 20vw;
+    background-image: url(watch.svg);
+    background-size: 100%;
+}
