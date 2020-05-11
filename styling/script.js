@@ -1,4 +1,4 @@
- const ball = document.querySelector("#ball");
+ const ball = document.querySelector("#watch");
 
 let position = 0;
 
