@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title></title>
+    <link rel="stylesheet" href="">
+    <style>
+
+ 
+
+          #scene {
+    position: relative;
+    height: 300px;
+    background-color: lightgreen;
+  }
+  #watch, #watch2 {
+    position: absolute;
+    left: 0;
+    bottom: 50%;
+    width: 1em;
+    height: 1em;
+    border-radius: 0.5em;
+  }
+  #watch { background: red; }
+  #watch2 { background: blue; }
+    </style>
+</head>
+
+<body>
+<form>
+  <input id="btn1" type="button" value="Click Me!" accesskey="s">
+  <input id="btn2" type="button" value="Click Me!" disabled>
+</form>
+        <h1>Micro animation</h1>
+    <div id="scene">
+    <div id="watch"></div>
+    </div>
+    <p></p>
+    
+    <script>
+    const btn1 = document.querySelector('#btn1');
+const txt = document.querySelector('p');
+
+ 
+
+btn1.addEventListener('click', updateBtn1);
+
+ 
+
+function updateBtn1() {
+    
+  if(btn1.value == 'Click Me!')
+        {
+      btn1.value = 'Reset';
+      txt.textContent = 'Click Me!';
+  }
+    
+  else {
+      btn1.value = 'Click Me!';
+      txt.textContent = 'Value Started...';
+      
+  }
+}
+
+ 
+
+function draw() {
+  requestAnimationFrame(draw);
+}
+
+ 
+
+draw();     
+
+ 
+
+  var scene = document.getElementById("scene");
+  var watch = document.getElementById("watch");
+
+ 
+
+  var maxX = scene.clientWidth - watch.offsetWidth;
+  var maxY = scene.clientHeight - watch.offsetHeight;
+
+ 
+
+const speed = 10; //px per sec
+const frameSize = 60; //frames per sec
+        
+  var start = 20;
+
+ 
+
+  function step(timestamp)
+  {
+    var progress, x, y;
+    if(start === 20) y = 0;
+
+ 
+
+    progress = (timestamp - start) / speed / 1000; // percent
+
+ 
+
+    x = progress * maxX/frameSize; // x = ƒ(t)
+    y = 2 * Math.sin(x); // y = ƒ(x)
+
+ 
+
+    watch.style.left = Math.min(maxX, frameSize * x) + "px";
+    watch.style.bottom = maxY/2 + (frameSize * y) + "px";
+
+ 
+
+    if(progress >= 1) start = timestamp; // reset to start position
+    requestAnimationFrame(step);
+  }
+
+ 
+
+  requestAnimationFrame(step);
+ 
+// Have a Look 
+
+//let position = 0;
+//
+// 
+//
+////speed
+//const speed = 100; //px per sec
+//const framerate = 60; //frames per sec
+//
+// 
+//
+//let last;
+//
+// 
+//
+//function step() {
+//    console.log("step running");
+//    // The now preformance
+//    const now = performance.now(); 
+//    //difference = delta on now and last now, and if last exist it uses last or it uses 0 if last does not exist
+//    const delta = now - last || 0;
+//
+// 
+//
+//    last = now;
+//// The 1000 / delta gives the perfect speed at all conditions
+//    position += speed / (1000 / delta);
+//    if (position > 200) {
+//        position = 0;
+//
+// 
+//
+//    }
+//    
+//    watch.style.transform = `translateX(${position}px)`;
+//    console.log("if running");
+//    requestAnimationFrame(step);
+//    console.log("requestAnimationFrame running");
+//}
+//
+// 
+//
+//step();
+    </script>
+</body>
+</html>
